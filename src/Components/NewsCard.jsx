@@ -4,19 +4,20 @@ import { FaBookmark } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
 import { LuBookMarked } from "react-icons/lu";
 import { MdLocalOffer } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 
 const NewsCard = (props = {}) => {
     const { news } = props || {};
     return (
-        <div className=" bg-white rounded-lg shadow-md overflow-hidden">
+        <div className=" bg-white rounded-lg  shadow-md overflow-hidden">
             <div>
                 <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center">
                         <img
                             src={news.author.img}
                             alt="Author"
-                            className="w-10 h-10 rounded-full object-cover mr-2"
+                            className="animate__animated animate__bounceInDown animate__flip w-10 h-10 rounded-full object-cover mr-2"
                         />
                         <div>
                             <h4 className="text-sm font-semibold">{news.author.name}</h4>
@@ -35,12 +36,12 @@ const NewsCard = (props = {}) => {
             <img
                 src={news.thumbnail_url}
                 alt="Thumbnail"
-                className="w-full h-72 "
+                className="w-full h-72 animate__animated animate__bounceInDown animate__flip "
             />
             <div className="p-4">
                 <p className="text-sm text-gray-600 mb-4">
                     {news.details.substring(0, 100)}...
-                    <span className="text-blue-500"> Read More</span>
+                    <Link to={`/news/${news._id}`} className="text-blue-500"> Read More</Link>
                 </p>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center text-yellow-500">
